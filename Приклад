@@ -1,0 +1,79 @@
+"use strict";
+console.log("Підключено JavaScript для Практичної роботи №2");
+
+function greet() {
+console.log("Привіт, світ!");
+}
+greet();
+greet();
+
+const multiply = function(a, b) {
+return a * b;
+};
+console.log(multiply(4, 5)); // 20
+
+const divide = (a, b) => a / b;
+console.log(divide(20, 4)); // 5
+
+function square(x) {
+return x * x;
+}
+console.log(square(6)); // 36
+
+if (true) {
+let localVar = "Я в блоці";
+console.log(localVar); // Працює
+}
+// console.log(localVar); // Має викликати ReferenceError
+
+function createCounter() {
+let count = 0;
+return function() {
+ count++;
+ return count;
+};
+}
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+
+const person = {
+name: "Олена",
+sayHello() {
+ console.log(`Привіт, мене звуть ${this.name}`);
+}
+};
+person.sayHello(); // Привіт, мене звуть Олена
+
+function add(a) {
+return function(b) {
+ return a + b;
+};
+}
+const addTen = add(10);
+console.log(addTen(5)); // 15
+
+"use strict";
+x = 5; // ReferenceError, оскільки змінна x не оголошена.
+
+let age = prompt("Enter your age:");
+// age буде рядком, тому порівняння без перетворення може дати некоректний
+результат.
+if (age >= 18) { /* ... */ }
+
+const person = {
+name: "Олена",
+sayHello() {
+ console.log(this.name);
+}
+};
+let greet = person.sayHello;
+greet(); // undefined, оскільки контекст втрачено.
+
+function add(a) {
+return function(b) {
+return a + b;
+};
+}
+// Якщо неправильно використовувати, можна отримати некоректний результат.
+
