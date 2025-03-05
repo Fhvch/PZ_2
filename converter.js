@@ -1,3 +1,5 @@
+"use strict";
+
 function runConverter() {
     const input = prompt("Введіть температуру:");
     if (input === null) {
@@ -28,15 +30,16 @@ const celsiusToFahrenheit = createConverter(9/5, 32);
 const fahrenheitToCelsius = createConverter(5/9, -32 * 5/9);
 
 function convertTemperature(value, direction) {
-    let convertedValue;
-    if (direction === "c to f") {
-        convertedValue = celsiusToFahrenheit(value);
+    const normalizedDirection = direction.trim().toLowerCase();
+
+    if (normalizedDirection === "с to f" || normalizedDirection === "c to f") {
+        const convertedValue = celsiusToFahrenheit(value);
         return formatResult(value, "°C", convertedValue, "°F");
-    } else if (direction === "f to c") {
-        convertedValue = fahrenheitToCelsius(value);
+    } else if (normalizedDirection === "f to c" || normalizedDirection === "f to с") {
+        const convertedValue = fahrenheitToCelsius(value);
         return formatResult(value, "°F", convertedValue, "°C");
     } else {
-        return "Невірний напрямок!";
+        return "Невірний напрямок! Будь ласка, введіть 'С to F' або 'F to C'.";
     }
 }
 
