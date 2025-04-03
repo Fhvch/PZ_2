@@ -1,3 +1,5 @@
+"use strict";
+
 function runSurvey() {
     const data = createSurvey();
     displaySurvey(data);
@@ -21,4 +23,5 @@ function displaySurvey(data) {
         <strong>Повнолітній:</strong> ${data.isAdult ? "Так" : "Ні"}
     `;
     resultDiv.innerHTML = message;
+    console.log(data.isAdult);
 }
